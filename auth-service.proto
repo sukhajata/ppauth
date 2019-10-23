@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package ppauth;
+
+message AuthRequest {
+    string token = 1;
+    repeated string allowedRoles = 2;
+}
+
+message AuthResponse {
+    bool result = 1;
+    string message = 2;
+}
+
+service AuthService {
+    rpc CheckAuth(AuthRequest) returns (AuthResponse) {}
+}
