@@ -10,6 +10,7 @@ message AuthRequest {
 message AuthResponse {
     bool result = 1;
     string message = 2;
+    string username = 3;
 }
 
 service AuthService {
