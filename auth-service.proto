@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package ppauth;
 
+option go_package = "github.com/sukhajata/ppauth";
+
 message AuthRequest {
     string token = 1;
     repeated string allowedRoles = 2;
@@ -13,6 +15,16 @@ message AuthResponse {
     string username = 3;
 }
 
+message TokenRequest {
+    string username = 1;
+    string password = 2;
+}
+
+message Token {
+    string token = 1;
+}
+
 service AuthService {
     rpc CheckAuth(AuthRequest) returns (AuthResponse) {}
+    rpc GetToken(TokenRequest) returns (Token) {}
 }
