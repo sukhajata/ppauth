@@ -29,6 +29,11 @@ class AuthServiceStub(object):
         request_serializer=auth__service__pb2.CreateUserRequest.SerializeToString,
         response_deserializer=auth__service__pb2.CreateUserResponse.FromString,
         )
+    self.DeleteUser = channel.unary_unary(
+        '/ppauth.AuthService/DeleteUser',
+        request_serializer=auth__service__pb2.DeleteUserRequest.SerializeToString,
+        response_deserializer=auth__service__pb2.DeleteUserResponse.FromString,
+        )
 
 
 class AuthServiceServicer(object):
@@ -56,6 +61,13 @@ class AuthServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def DeleteUser(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_AuthServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -73,6 +85,11 @@ def add_AuthServiceServicer_to_server(servicer, server):
           servicer.CreateUser,
           request_deserializer=auth__service__pb2.CreateUserRequest.FromString,
           response_serializer=auth__service__pb2.CreateUserResponse.SerializeToString,
+      ),
+      'DeleteUser': grpc.unary_unary_rpc_method_handler(
+          servicer.DeleteUser,
+          request_deserializer=auth__service__pb2.DeleteUserRequest.FromString,
+          response_serializer=auth__service__pb2.DeleteUserResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

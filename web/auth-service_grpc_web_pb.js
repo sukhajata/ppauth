@@ -306,5 +306,85 @@ proto.ppauth.AuthServicePromiseClient.prototype.createUser =
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ppauth.DeleteUserRequest,
+ *   !proto.ppauth.DeleteUserResponse>}
+ */
+const methodDescriptor_AuthService_DeleteUser = new grpc.web.MethodDescriptor(
+  '/ppauth.AuthService/DeleteUser',
+  grpc.web.MethodType.UNARY,
+  proto.ppauth.DeleteUserRequest,
+  proto.ppauth.DeleteUserResponse,
+  /**
+   * @param {!proto.ppauth.DeleteUserRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ppauth.DeleteUserResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.ppauth.DeleteUserRequest,
+ *   !proto.ppauth.DeleteUserResponse>}
+ */
+const methodInfo_AuthService_DeleteUser = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.ppauth.DeleteUserResponse,
+  /**
+   * @param {!proto.ppauth.DeleteUserRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ppauth.DeleteUserResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ppauth.DeleteUserRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.ppauth.DeleteUserResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ppauth.DeleteUserResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ppauth.AuthServiceClient.prototype.deleteUser =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ppauth.AuthService/DeleteUser',
+      request,
+      metadata || {},
+      methodDescriptor_AuthService_DeleteUser,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ppauth.DeleteUserRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ppauth.DeleteUserResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.ppauth.AuthServicePromiseClient.prototype.deleteUser =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ppauth.AuthService/DeleteUser',
+      request,
+      metadata || {},
+      methodDescriptor_AuthService_DeleteUser);
+};
+
+
 module.exports = proto.ppauth;
 

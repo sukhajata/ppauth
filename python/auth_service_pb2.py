@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='ppauth',
   syntax='proto3',
   serialized_options=_b('Z\033github.com/sukhajata/ppauth'),
-  serialized_pb=_b('\n\x12\x61uth-service.proto\x12\x06ppauth\"2\n\x0b\x41uthRequest\x12\r\n\x05token\x18\x01 \x01(\t\x12\x14\n\x0c\x61llowedRoles\x18\x02 \x03(\t\"A\n\x0c\x41uthResponse\x12\x0e\n\x06result\x18\x01 \x01(\x08\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x10\n\x08username\x18\x03 \x01(\t\"2\n\x0cTokenRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"\x16\n\x05Token\x12\r\n\x05token\x18\x01 \x01(\t\"U\n\x11\x43reateUserRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\r\n\x05\x65mail\x18\x02 \x01(\t\x12\x10\n\x08password\x18\x03 \x01(\t\x12\r\n\x05roles\x18\x04 \x03(\t\"$\n\x12\x43reateUserResponse\x12\x0e\n\x06userId\x18\x01 \x01(\t2\xc1\x01\n\x0b\x41uthService\x12\x38\n\tCheckAuth\x12\x13.ppauth.AuthRequest\x1a\x14.ppauth.AuthResponse\"\x00\x12\x31\n\x08GetToken\x12\x14.ppauth.TokenRequest\x1a\r.ppauth.Token\"\x00\x12\x45\n\nCreateUser\x12\x19.ppauth.CreateUserRequest\x1a\x1a.ppauth.CreateUserResponse\"\x00\x42\x1dZ\x1bgithub.com/sukhajata/ppauthb\x06proto3')
+  serialized_pb=_b('\n\x12\x61uth-service.proto\x12\x06ppauth\"2\n\x0b\x41uthRequest\x12\r\n\x05token\x18\x01 \x01(\t\x12\x14\n\x0c\x61llowedRoles\x18\x02 \x03(\t\"A\n\x0c\x41uthResponse\x12\x0e\n\x06result\x18\x01 \x01(\x08\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x10\n\x08username\x18\x03 \x01(\t\"2\n\x0cTokenRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"\x16\n\x05Token\x12\r\n\x05token\x18\x01 \x01(\t\"U\n\x11\x43reateUserRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\r\n\x05\x65mail\x18\x02 \x01(\t\x12\x10\n\x08password\x18\x03 \x01(\t\x12\r\n\x05roles\x18\x04 \x03(\t\"$\n\x12\x43reateUserResponse\x12\x0e\n\x06userId\x18\x01 \x01(\t\"%\n\x11\x44\x65leteUserRequest\x12\x10\n\x08username\x18\x01 \x01(\t\"&\n\x12\x44\x65leteUserResponse\x12\x10\n\x08response\x18\x01 \x01(\t2\x88\x02\n\x0b\x41uthService\x12\x38\n\tCheckAuth\x12\x13.ppauth.AuthRequest\x1a\x14.ppauth.AuthResponse\"\x00\x12\x31\n\x08GetToken\x12\x14.ppauth.TokenRequest\x1a\r.ppauth.Token\"\x00\x12\x45\n\nCreateUser\x12\x19.ppauth.CreateUserRequest\x1a\x1a.ppauth.CreateUserResponse\"\x00\x12\x45\n\nDeleteUser\x12\x19.ppauth.DeleteUserRequest\x1a\x1a.ppauth.DeleteUserResponse\"\x00\x42\x1dZ\x1bgithub.com/sukhajata/ppauthb\x06proto3')
 )
 
 
@@ -260,12 +260,76 @@ _CREATEUSERRESPONSE = _descriptor.Descriptor(
   serialized_end=348,
 )
 
+
+_DELETEUSERREQUEST = _descriptor.Descriptor(
+  name='DeleteUserRequest',
+  full_name='ppauth.DeleteUserRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='username', full_name='ppauth.DeleteUserRequest.username', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=350,
+  serialized_end=387,
+)
+
+
+_DELETEUSERRESPONSE = _descriptor.Descriptor(
+  name='DeleteUserResponse',
+  full_name='ppauth.DeleteUserResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='response', full_name='ppauth.DeleteUserResponse.response', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=389,
+  serialized_end=427,
+)
+
 DESCRIPTOR.message_types_by_name['AuthRequest'] = _AUTHREQUEST
 DESCRIPTOR.message_types_by_name['AuthResponse'] = _AUTHRESPONSE
 DESCRIPTOR.message_types_by_name['TokenRequest'] = _TOKENREQUEST
 DESCRIPTOR.message_types_by_name['Token'] = _TOKEN
 DESCRIPTOR.message_types_by_name['CreateUserRequest'] = _CREATEUSERREQUEST
 DESCRIPTOR.message_types_by_name['CreateUserResponse'] = _CREATEUSERRESPONSE
+DESCRIPTOR.message_types_by_name['DeleteUserRequest'] = _DELETEUSERREQUEST
+DESCRIPTOR.message_types_by_name['DeleteUserResponse'] = _DELETEUSERRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 AuthRequest = _reflection.GeneratedProtocolMessageType('AuthRequest', (_message.Message,), {
@@ -310,6 +374,20 @@ CreateUserResponse = _reflection.GeneratedProtocolMessageType('CreateUserRespons
   })
 _sym_db.RegisterMessage(CreateUserResponse)
 
+DeleteUserRequest = _reflection.GeneratedProtocolMessageType('DeleteUserRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DELETEUSERREQUEST,
+  '__module__' : 'auth_service_pb2'
+  # @@protoc_insertion_point(class_scope:ppauth.DeleteUserRequest)
+  })
+_sym_db.RegisterMessage(DeleteUserRequest)
+
+DeleteUserResponse = _reflection.GeneratedProtocolMessageType('DeleteUserResponse', (_message.Message,), {
+  'DESCRIPTOR' : _DELETEUSERRESPONSE,
+  '__module__' : 'auth_service_pb2'
+  # @@protoc_insertion_point(class_scope:ppauth.DeleteUserResponse)
+  })
+_sym_db.RegisterMessage(DeleteUserResponse)
+
 
 DESCRIPTOR._options = None
 
@@ -319,8 +397,8 @@ _AUTHSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=351,
-  serialized_end=544,
+  serialized_start=430,
+  serialized_end=694,
   methods=[
   _descriptor.MethodDescriptor(
     name='CheckAuth',
@@ -347,6 +425,15 @@ _AUTHSERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_CREATEUSERREQUEST,
     output_type=_CREATEUSERRESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteUser',
+    full_name='ppauth.AuthService.DeleteUser',
+    index=3,
+    containing_service=None,
+    input_type=_DELETEUSERREQUEST,
+    output_type=_DELETEUSERRESPONSE,
     serialized_options=None,
   ),
 ])

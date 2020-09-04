@@ -35,8 +35,17 @@ message CreateUserResponse {
     string userId = 1;
 }
 
+message DeleteUserRequest {
+    string username = 1;
+}
+
+message DeleteUserResponse {
+    string response = 1;
+}
+
 service AuthService {
     rpc CheckAuth(AuthRequest) returns (AuthResponse) {}
     rpc GetToken(TokenRequest) returns (Token) {}
     rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {}
+    rpc DeleteUser(DeleteUserRequest) returns(DeleteUserResponse) {}
 }
