@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='ppauth',
   syntax='proto3',
   serialized_options=_b('Z\033github.com/sukhajata/ppauth'),
-  serialized_pb=_b('\n\x12\x61uth-service.proto\x12\x06ppauth\"2\n\x0b\x41uthRequest\x12\r\n\x05token\x18\x01 \x01(\t\x12\x14\n\x0c\x61llowedRoles\x18\x02 \x03(\t\"A\n\x0c\x41uthResponse\x12\x0e\n\x06result\x18\x01 \x01(\x08\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x10\n\x08username\x18\x03 \x01(\t\"2\n\x0cTokenRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"\x16\n\x05Token\x12\r\n\x05token\x18\x01 \x01(\t2z\n\x0b\x41uthService\x12\x38\n\tCheckAuth\x12\x13.ppauth.AuthRequest\x1a\x14.ppauth.AuthResponse\"\x00\x12\x31\n\x08GetToken\x12\x14.ppauth.TokenRequest\x1a\r.ppauth.Token\"\x00\x42\x1dZ\x1bgithub.com/sukhajata/ppauthb\x06proto3')
+  serialized_pb=_b('\n\x12\x61uth-service.proto\x12\x06ppauth\"2\n\x0b\x41uthRequest\x12\r\n\x05token\x18\x01 \x01(\t\x12\x14\n\x0c\x61llowedRoles\x18\x02 \x03(\t\"A\n\x0c\x41uthResponse\x12\x0e\n\x06result\x18\x01 \x01(\x08\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x10\n\x08username\x18\x03 \x01(\t\"2\n\x0cTokenRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"\x16\n\x05Token\x12\r\n\x05token\x18\x01 \x01(\t\"U\n\x11\x43reateUserRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\r\n\x05\x65mail\x18\x02 \x01(\t\x12\x10\n\x08password\x18\x03 \x01(\t\x12\r\n\x05roles\x18\x04 \x03(\t\"$\n\x12\x43reateUserResponse\x12\x0e\n\x06userId\x18\x01 \x01(\t2\xc1\x01\n\x0b\x41uthService\x12\x38\n\tCheckAuth\x12\x13.ppauth.AuthRequest\x1a\x14.ppauth.AuthResponse\"\x00\x12\x31\n\x08GetToken\x12\x14.ppauth.TokenRequest\x1a\r.ppauth.Token\"\x00\x12\x45\n\nCreateUser\x12\x19.ppauth.CreateUserRequest\x1a\x1a.ppauth.CreateUserResponse\"\x00\x42\x1dZ\x1bgithub.com/sukhajata/ppauthb\x06proto3')
 )
 
 
@@ -177,10 +177,95 @@ _TOKEN = _descriptor.Descriptor(
   serialized_end=223,
 )
 
+
+_CREATEUSERREQUEST = _descriptor.Descriptor(
+  name='CreateUserRequest',
+  full_name='ppauth.CreateUserRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='username', full_name='ppauth.CreateUserRequest.username', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='email', full_name='ppauth.CreateUserRequest.email', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='password', full_name='ppauth.CreateUserRequest.password', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='roles', full_name='ppauth.CreateUserRequest.roles', index=3,
+      number=4, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=225,
+  serialized_end=310,
+)
+
+
+_CREATEUSERRESPONSE = _descriptor.Descriptor(
+  name='CreateUserResponse',
+  full_name='ppauth.CreateUserResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='userId', full_name='ppauth.CreateUserResponse.userId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=312,
+  serialized_end=348,
+)
+
 DESCRIPTOR.message_types_by_name['AuthRequest'] = _AUTHREQUEST
 DESCRIPTOR.message_types_by_name['AuthResponse'] = _AUTHRESPONSE
 DESCRIPTOR.message_types_by_name['TokenRequest'] = _TOKENREQUEST
 DESCRIPTOR.message_types_by_name['Token'] = _TOKEN
+DESCRIPTOR.message_types_by_name['CreateUserRequest'] = _CREATEUSERREQUEST
+DESCRIPTOR.message_types_by_name['CreateUserResponse'] = _CREATEUSERRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 AuthRequest = _reflection.GeneratedProtocolMessageType('AuthRequest', (_message.Message,), {
@@ -211,6 +296,20 @@ Token = _reflection.GeneratedProtocolMessageType('Token', (_message.Message,), {
   })
 _sym_db.RegisterMessage(Token)
 
+CreateUserRequest = _reflection.GeneratedProtocolMessageType('CreateUserRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CREATEUSERREQUEST,
+  '__module__' : 'auth_service_pb2'
+  # @@protoc_insertion_point(class_scope:ppauth.CreateUserRequest)
+  })
+_sym_db.RegisterMessage(CreateUserRequest)
+
+CreateUserResponse = _reflection.GeneratedProtocolMessageType('CreateUserResponse', (_message.Message,), {
+  'DESCRIPTOR' : _CREATEUSERRESPONSE,
+  '__module__' : 'auth_service_pb2'
+  # @@protoc_insertion_point(class_scope:ppauth.CreateUserResponse)
+  })
+_sym_db.RegisterMessage(CreateUserResponse)
+
 
 DESCRIPTOR._options = None
 
@@ -220,8 +319,8 @@ _AUTHSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=225,
-  serialized_end=347,
+  serialized_start=351,
+  serialized_end=544,
   methods=[
   _descriptor.MethodDescriptor(
     name='CheckAuth',
@@ -239,6 +338,15 @@ _AUTHSERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_TOKENREQUEST,
     output_type=_TOKEN,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='CreateUser',
+    full_name='ppauth.AuthService.CreateUser',
+    index=2,
+    containing_service=None,
+    input_type=_CREATEUSERREQUEST,
+    output_type=_CREATEUSERRESPONSE,
     serialized_options=None,
   ),
 ])

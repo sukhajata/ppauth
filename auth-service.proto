@@ -24,7 +24,19 @@ message Token {
     string token = 1;
 }
 
+message CreateUserRequest {
+    string username = 1;
+    string email = 2;
+    string password = 3;
+    repeated string roles = 4;
+}
+
+message CreateUserResponse {
+    string userId = 1;
+}
+
 service AuthService {
     rpc CheckAuth(AuthRequest) returns (AuthResponse) {}
     rpc GetToken(TokenRequest) returns (Token) {}
+    rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {}
 }

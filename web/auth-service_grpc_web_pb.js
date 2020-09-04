@@ -226,5 +226,85 @@ proto.ppauth.AuthServicePromiseClient.prototype.getToken =
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ppauth.CreateUserRequest,
+ *   !proto.ppauth.CreateUserResponse>}
+ */
+const methodDescriptor_AuthService_CreateUser = new grpc.web.MethodDescriptor(
+  '/ppauth.AuthService/CreateUser',
+  grpc.web.MethodType.UNARY,
+  proto.ppauth.CreateUserRequest,
+  proto.ppauth.CreateUserResponse,
+  /**
+   * @param {!proto.ppauth.CreateUserRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ppauth.CreateUserResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.ppauth.CreateUserRequest,
+ *   !proto.ppauth.CreateUserResponse>}
+ */
+const methodInfo_AuthService_CreateUser = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.ppauth.CreateUserResponse,
+  /**
+   * @param {!proto.ppauth.CreateUserRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ppauth.CreateUserResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ppauth.CreateUserRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.ppauth.CreateUserResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ppauth.CreateUserResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ppauth.AuthServiceClient.prototype.createUser =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ppauth.AuthService/CreateUser',
+      request,
+      metadata || {},
+      methodDescriptor_AuthService_CreateUser,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ppauth.CreateUserRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ppauth.CreateUserResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.ppauth.AuthServicePromiseClient.prototype.createUser =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ppauth.AuthService/CreateUser',
+      request,
+      metadata || {},
+      methodDescriptor_AuthService_CreateUser);
+};
+
+
 module.exports = proto.ppauth;
 
